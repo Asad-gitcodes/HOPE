@@ -56,13 +56,23 @@ app.get('/area-info', (req, res) => {
   res.render('area-info');  // guest_page/views/area-info.ejs
 });
 
+app.get('/first-aid', (req, res) => {
+  res.render('first-aid');  // Ensure the file exists in the views folder
+});
+
+
 // ✅ About Us Page (Greeting_Page/views/about.ejs)
 app.get('/AboutUs', (req, res) => {
-  res.render('aboutgreetingpage');
+  res.render('about');  // Changed to 'about' for consistency
 });
 
 app.get('/contact', (req, res) => {
-  res.render('contactgreetingpage');
+  res.render('contact');  // Changed to 'contact' for consistency
+});
+
+// ✅ 404 Error Handling
+app.use((req, res, next) => {
+  res.status(404).render('404'); // Custom 404 page, assuming a 404.ejs file exists
 });
 
 // ✅ Start the server
